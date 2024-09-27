@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import DepositModel
+from depositapp.models import DepositModel
 
 
 class DepositSerializer(serializers.ModelSerializer):
