@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,9 +78,14 @@ WSGI_APPLICATION = "deposit.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / 'mydatabase'
+
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'deposit',
+        'USER': os.environ.get('POSTGRES_USER', 'deposit'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', ''),
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 

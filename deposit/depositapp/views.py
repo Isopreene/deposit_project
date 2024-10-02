@@ -9,12 +9,11 @@ from rest_framework.request import Request
 
 
 class DepositView(APIView):
-
-    # def get(self, request: Request) -> Response:
-    #     depositdata = DepositModel.objects.all()
-    #     return Response(
-    #         data={'posts': DepositSerializer(depositdata, many=True).data},
-    #         status=200)
+    def get(self, request: Request) -> Response:
+        depositdata = DepositModel.objects.all()
+        return Response(
+            data={'posts': DepositSerializer(depositdata, many=True).data},
+            status=200)
 
     def post(self, request: Request) -> Response:
         serializer = DepositSerializer(data=request.data)
@@ -27,6 +26,9 @@ class DepositView(APIView):
         amount = serializer.data['amount']
         rate = serializer.data['rate']
         dates_rates = calculate_deposit(date, periods, amount, rate)
-        # DepositSerializer(new_deposit).data
+        DepositModel.objects.create(date=date,
+                                    periods=periods,
+                                    amount=amount,
+                                    rate=rate)
         return Response({'info':dates_rates},
                         status=200)
