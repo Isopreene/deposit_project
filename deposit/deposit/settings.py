@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-d^!pilz4zilslefro3clz4_5h!432*!bja=c1h3w&6iu7tckbb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'db']
 
 
 # Application definition
@@ -84,11 +84,10 @@ DATABASES = {
         'NAME': 'deposit',
         'USER': os.environ.get('POSTGRES_USER', 'deposit'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', ''),
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
+        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
