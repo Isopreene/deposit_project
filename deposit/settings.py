@@ -81,7 +81,7 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'deposit',
+        'NAME': os.environ.get('POSTGRES_NAME', 'deposit'),
         'USER': os.environ.get('POSTGRES_USER', 'deposit'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', ''),
         'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),

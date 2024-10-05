@@ -4,10 +4,11 @@
 
 Создать .env файл в корне проекта, задать переменные окружения:
 
-`POSTGRES_USER`  
-`POSTGRES_NAME`  
-`POSTGRES_PASSWORD`  
-`POSTGRES_HOST`  
-`POSTGRES_PORT`
+`POSTGRES_USER=deposit`  
+`POSTGRES_NAME=deposit`  
+`POSTGRES_PASSWORD=fnroiNwoinf24o2`  
+`POSTGRES_HOST=db`  
+`POSTGRES_PORT=5432`
+
 
 Запуск командой `docker compose up -d`
